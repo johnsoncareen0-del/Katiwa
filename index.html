@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Mareen! ✨🪩</title>
+  <style>
+    /* --- PINK THEME & ANIMATED GLITTER BACKGROUND --- */
+    body {
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #4a0028;
+      
+      /* Hot Pink to Baby Pink Gradient */
+      background-color: #ffb6c1;
+      background-image: 
+        radial-gradient(circle, #ffffff 15%, transparent 20%),
+        radial-gradient(circle, #ffffff 15%, transparent 20%),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, transparent 20%),
+        radial-gradient(circle, rgba(255, 105, 180, 0.6) 15%, transparent 20%),
+        linear-gradient(135deg, #ff1493 0%, #ff69b4 50%, #ffc0cb 100%);
+      
+      background-size: 80px 80px, 120px 120px, 60px 60px, 100px 100px, 100% 100%;
+      background-position: 0 0, 40px 40px, 20px 50px, 70px 10px, 0 0;
+      animation: glitterShimmer 6s ease-in-out infinite;
+    }
+
+    @keyframes glitterShimmer {
+      0% { background-position: 0 0, 40px 40px, 20px 50px, 70px 10px, 0 0; }
+      50% { background-position: 10px -10px, 35px 45px, 25px 40px, 65px 15px, 0 0; }
+      100% { background-position: 0 0, 40px 40px, 20px 50px, 70px 10px, 0 0; }
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* --- STEP CARDS --- */
+    .step-card {
+      display: none;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 3px solid #ff69b4;
+      border-radius: 25px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(255, 20, 147, 0.3);
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .step-card.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2, h3 {
+      color: #d8006f;
+      margin-bottom: 10px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin: 10px 0;
+      border: 3px solid #ffb6c1;
+    }
+
+    .nav-btn {
+      background: linear-gradient(45deg, #ff1493, #ff69b4);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- STEP 1: Welcome & Music -->
+    <div class="step-card active" id="step1">
+      <h1>✨ Happy Birthday, Mareen! 🪩💖</h1>
+      <p>Press play Mareen, to set the vibe before we take a trip down memory lane! 🎶</p>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/512969300624?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <br>
+      <button class="nav-btn" onclick="nextStep(2)">Next Step ➡️</button>
+    </div>
+
+    <!-- STEP 2: High School Throwback -->
+    <div class="step-card" id="step2">
+      <h2>🎶 High School Throwback for Mareen</h2>
+      <p><i>"F is for friends who do stuff together..."</i></p>
+      <p>Remember back in high school when I stood right in front of your class and sang that song just to watch you get all shy, Mareen? 🙈 From my best friend back then to my whole world today! ❤️</p>
+      <img src="IMG_20260319_163921_490.jpg" alt="Memory 1">
+      <br>
+      <button class="nav-btn" onclick="nextStep(3)">Next Step ➡️</button>
+    </div>
+
+    <!-- STEP 3: Favorite Moments -->
+    <div class="step-card" id="step3">
+      <h2>📸 Favorite Moments With You, Mareen</h2>
+      <p>Every single laugh, every goofy photo... Mareen, you bring so much sunshine into my life! ✨</p>
+      <img src="IMG_20260319_165515_368.jpg" alt="Memory 2">
+      <img src="IMG_20260319_165702_992.jpg" alt="Memory 3">
+      <br>
+      <button class="nav-btn" onclick="nextStep(4)">Next Step ➡️</button>
+    </div>
+
+    <!-- STEP 4: Distance Eraser Voucher & Final Message -->
+    <div class="step-card" id="step4">
+      <h2>🎫 Mareen's Distance-Eraser Voucher</h2>
+      <p><strong>Redeemable for:</strong> One endless hug, a dream dinner date, and unlimited laughter! 🎟️💖</p>
+      <img src="IMG_20260319_172910_158.jpg" alt="Memory 4">
+      <p>Happy Birthday, Mareen! Made with endless love by your girl 💕</p>
+      <button class="nav-btn" onclick="nextStep(1)">Start Over 🔄</button>
+    </div>
+
+  </div>
+
+  <script>
+    function nextStep(stepNumber) {
+      var steps = document.querySelectorAll('.step-card');
+      steps.forEach(function(step) {
+        step.classList.remove('active');
+      });
+
+      document.getElementById('step' + stepNumber).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+</body>
+</html>
+
